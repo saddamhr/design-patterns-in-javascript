@@ -1,5 +1,7 @@
 /**
- * The Single Responsibility Principle (SRP) is one of the SOLID principles of object-oriented design, and it encourages the idea that a class should have only one reason to change. In the context of JavaScript, where object-oriented principles are often applied, SRP can be valuable for writing maintainable and modular code.
+ * The Single Responsibility Principle (SRP) is one of the SOLID principles of object-oriented design,
+ * and it encourages the idea that a class should have only one reason to change. In the context of JavaScript,
+ * where object-oriented principles are often applied, SRP can be valuable for writing maintainable and modular code.
  */
 // Not following SRP
 class User {
