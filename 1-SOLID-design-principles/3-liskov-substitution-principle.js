@@ -1,56 +1,36 @@
-class Rectangle {
-  constructor(width, height) {
-    this._width = width;
-    this._height = height;
-  }
+/**
+ * The Liskov Substitution Principle (LSP) is one of the SOLID principles of object-oriented design,
+ * and it emphasizes that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+ * In JavaScript, which is a prototype-based language rather than a class-based one, the Liskov Substitution Principle can be applied in a similar manner.
+ */
 
-  get width() {
-    return this._width;
-  }
-
-  get height() {
-    return this._height;
-  }
-
-  set width(value) {
-    return (this._width = value);
-  }
-  set height(value) {
-    return (this._height = value);
-  }
-
-  get area() {
-    return this._width * this._height;
-  }
-
-  toString() {
-    return `${this._width}x${this._height}`;
+// Base class
+class Bird {
+  fly() {
+    console.log('The bird is flying.');
   }
 }
 
-class Square extends Rectangle {
-  constructor(size) {
-    super(size, size);
+// Subclass
+class Penguin extends Bird {
+  // Penguins can't fly, so we override the fly method
+  fly() {
+    console.log("Sorry, I can't fly.");
   }
 
-  set width(value) {
-    this._width = this.height = value;
-  }
-
-  set height(value) {
-    this._width = this._height = value;
+  swim() {
+    console.log('The penguin is swimming.');
   }
 }
 
-const useIt = function (rc) {
-  let width = rc._width;
-  rc.height = 10;
-  console.log(`Expected area of ${10 * width}, ` + `got ${rc.area}`);
-};
+// Function using Bird as a parameter
+function makeBirdFly(bird) {
+  bird.fly();
+}
 
+// Using Liskov Substitution Principle
+const genericBird = new Bird();
+const penguin = new Penguin();
 
-const rc = new Rectangle(2, 3)
-useIt(rc)
-
-const sq = new Square(5)
-useIt(sq)
+makeBirdFly(genericBird); // Output: The bird is flying.
+makeBirdFly(penguin); // Output: Sorry, I can't fly.
