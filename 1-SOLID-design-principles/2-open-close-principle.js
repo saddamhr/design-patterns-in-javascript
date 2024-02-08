@@ -1,3 +1,10 @@
+/**
+ * The Open/Closed Principle (OCP) is one of the SOLID principles of object-oriented design.
+ * It states that software entities (such as classes, modules, functions, etc.)
+ * should be open for extension but closed for modification. In JavaScript, as in any object-oriented language,
+ * the OCP encourages developers to design systems in a way that allows new functionality to be added without altering existing code.
+ */
+
 let Color = Object.freeze({
   red: 'red',
   green: 'green',
@@ -82,7 +89,7 @@ class BetterFilter {
   }
 }
 
-// specification combinator 
+// specification combinator
 class AndSpecification {
   constructor(...specs) {
     this.specs = specs;
